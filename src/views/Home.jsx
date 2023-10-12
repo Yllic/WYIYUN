@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { Icon } from '@iconify/react';
 // 跳转
 import { useNavigate } from 'react-router-dom';
+import { Popup } from 'antd-mobile';
+import SideBar2 from './comm/Sidebar2';
 import { homepageBlockPage, detailEventHot, startTime } from '../service';
 import '../font/iconfont.css';
 import Banner from '../components/Banner';
@@ -329,6 +331,7 @@ const Home = () => {
   const [rank, setRank] = useState([]);
   const [hot, setHot] = useState([]);
   const [time, setTime] = useState([]);
+  const [visible3, setVisible3] = useState(false);
 
   useEffect(() => {
     homepageBlockPage()
@@ -383,8 +386,20 @@ const Home = () => {
             icon="ph:list-bold"
             color="#3a455b"
             className="text-[7vw]"
-            onClick={() => navigate('/Login')}
+            onClick={() => {
+              setVisible3(true);
+            }}
           />
+          <Popup
+            visible={visible3}
+            onMaskClick={() => {
+              setVisible3(false);
+            }}
+            position="left"
+            bodyStyle={{ widows: '91vw', background: 'rgb(241,241,241)' }}
+          >
+            <SideBar2 />
+          </Popup>
           <span className="iconfont icon-sousuo" />
           <input type="text" placeholder="Love Is Gone (Acoustic)" onFocus={handleInputFocus} />
           <span className="iconfont icon-maikefeng" />

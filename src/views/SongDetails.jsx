@@ -43,7 +43,7 @@ const SongDetails = () => {
         console.log(err);
       });
   }, []);
-  console.log(slider);
+  // console.log(slider);
   // console.log(playId);
   // console.log(state);
   return (
