@@ -3062,6 +3062,22 @@ ahooks@^3.7.6:
     screenfull "^5.0.0"
     tslib "^2.4.1"
 
+ahooks@^3.7.8:
+  version "3.7.8"
+  resolved "https://repo.huaweicloud.com/repository/npm/ahooks/-/ahooks-3.7.8.tgz#3fa3c491cd153e884a32b0c4192fc72cf84c4332"
+  integrity sha512-e/NMlQWoCjaUtncNFIZk3FG1ImSkV/JhScQSkTqnftakRwdfZWSw6zzoWSG9OMYqPNs2MguDYBUFFC6THelWXA==
+  dependencies:
+    "@babel/runtime" "^7.21.0"
+    "@types/js-cookie" "^2.x.x"
+    ahooks-v3-count "^1.0.0"
+    dayjs "^1.9.1"
+    intersection-observer "^0.12.0"
+    js-cookie "^2.x.x"
+    lodash "^4.17.21"
+    resize-observer-polyfill "^1.5.1"
+    screenfull "^5.0.0"
+    tslib "^2.4.1"
+
 ajv-formats@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npmmirror.com/ajv-formats/-/ajv-formats-2.1.1.tgz#6e669400659eb74973bbf2e33327180a0996b520"
@@ -7408,6 +7424,11 @@ loader-utils@^3.2.0:
   resolved "https://registry.npmmirror.com/loader-utils/-/loader-utils-3.2.1.tgz#4fb104b599daafd82ef3e1a41fb9265f87e1f576"
   integrity sha512-ZvFw1KWS3GVyYBYb7qkmRM/WwL2TQQBxgCK62rlvm4WpVQ23Nb4tYjApUlfjrEGvOs7KHEsmyUn75OHZrJMWPw==
 
+loadsh@^0.0.4:
+  version "0.0.4"
+  resolved "https://repo.huaweicloud.com/repository/npm/loadsh/-/loadsh-0.0.4.tgz#5314babd12bb13315dde024a4ca70758c5489d2d"
+  integrity sha512-U+wLL8InpfRalWrr+0SuhWgGt10M4OyAk6G8xCYo2rwpiHtxZkWiFpjei0vO463ghW8LPCdhqQxXlMy2qicAEw==
+
 local-pkg@^0.4.3:
   version "0.4.3"
   resolved "https://registry.npmmirror.com/local-pkg/-/local-pkg-0.4.3.tgz#0ff361ab3ae7f1c19113d9bb97b98b905dbc4963"
@@ -10167,6 +10188,11 @@ stop-iteration-iterator@^1.0.0:
   integrity sha512-iCGQj+0l0HOdZ2AEeBADlsRC+vsnDsZsbdSiH1yNSjcfKM7fdpCMfqAL/dwF5BLiw/XhRft/Wax6zQbhq2BcjQ==
   dependencies:
     internal-slot "^1.0.4"
+
+storejs@^2.0.6:
+  version "2.0.6"
+  resolved "https://repo.huaweicloud.com/repository/npm/storejs/-/storejs-2.0.6.tgz#f0c447baa889e7c55d637b82a98fe76f9356dea1"
+  integrity sha512-JcznOtEe10w3A0UdaltC1+fR9/x2uEBDTzrxsyUWpIadueYorWAClQjXoQGZhR/q+/584nIN3mIp9olf3Yefow==
 
 string-argv@0.3.2:
   version "0.3.2"
