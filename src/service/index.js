@@ -45,3 +45,5 @@ export const startTime = () =>
 // MV
 // https://netease-cloud-music-api-five-roan-88.vercel.app/top/mv?limit=10&area=内地
 export const getTopMv = (area) => http.get(`/top/mv?limit=50&area=${area}`);
+// MV视频 https://netease-cloud-music-api-five-roan-88.vercel.app/mv/url?id=14659206
+export const getMvUrl = (id) => http.get(`/mv/url?id=${id}`);

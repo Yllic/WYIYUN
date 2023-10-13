@@ -13,6 +13,7 @@ import styled from 'styled-components';
 import { Icon } from '@iconify/react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getTopMv } from '../service';
 
 const StyledDiv = styled.div`
@@ -86,6 +87,7 @@ const Mv = () => {
   const areaArr = ['内地', '港台', '欧美', '韩国', '日本'];
   const [selectArea, setSelectArea] = useState(areaArr[0]);
   const [topmv, setTopMv] = useState([]);
+  const navigate = useNavigate();
   const handleTabClick = (area) => {
     setSelectArea(area);
     getTopMv(area)
@@ -133,7 +135,7 @@ const Mv = () => {
           <div className="panelist">
             {topmv.slice(0, 10).map((item, index) => (
               <div key={index}>
-                <div className="pane_img">
+                <div className="pane_img" onClick={() => navigate(`/VideoPlayerView/${item.id}`)}>
                   <img src={item.cover} alt="" />
                   <div>
                     <Icon icon="ph:play-fill" color="white" style={{ marginRight: '.533333vw' }} />

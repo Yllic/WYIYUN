@@ -13,6 +13,7 @@ import Information from './views/Information';
 
 import SongDetails from './views/SongDetails';
 import PlayerHome from './views/PlayerHome';
+import VideoPlayerView from './views/VideoPlayerView';
 
 const App = () => {
   const location = useLocation();
@@ -43,6 +44,7 @@ const App = () => {
 
         <Route path="/SongDetails/:id" element={<SongDetails />} />
         <Route path="/PlayerHome/:id" element={<PlayerHome />} />
+        <Route path="/VideoPlayerView/:id" element={<VideoPlayerView />} />
       </Routes>
 
       {isShowNav && (
