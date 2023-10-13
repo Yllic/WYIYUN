@@ -12,15 +12,15 @@ import Mv from './views/Mv';
 import Information from './views/Information';
 
 import SongDetails from './views/SongDetails';
+import PlayerHome from './views/PlayerHome';
 
 const App = () => {
   const location = useLocation();
   const isShowNav = useMemo(() => {
     // 当前路径为/Search时不显示底部导航栏
     return (
-      location.pathname !== '/Search' &&
-      location.pathname !== '/Login' &&
-      location.pathname !== '/SongDetails'
+      location.pathname !== '/Search' && location.pathname !== '/Login'
+      // location.pathname !== '/SongDetails'
     );
   }, [location]);
 
@@ -42,11 +42,11 @@ const App = () => {
         <Route path="/Login" element={<Login />} />
 
         <Route path="/SongDetails/:id" element={<SongDetails />} />
+        <Route path="/PlayerHome/:id" element={<PlayerHome />} />
       </Routes>
 
       {isShowNav && (
         <div
-          //  border-t-[.266667vw] border-[#e8e8e8]
           className="w-[100%] h-[12vw] flex items-center fixed bottom-0 left-0 right-0 bg-[#fff]"
           style={{ borderTop: '0.266667vw solid #e8e8e8' }}
         >

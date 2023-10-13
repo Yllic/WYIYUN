@@ -22,6 +22,10 @@ export const checkLoginQr = (params) => http.get('/login/qr/check', { params });
 export const getPlaylistDetailById = (id) => http.get(`/playlist/detail?id=${id}`);
 // 喜欢这个歌单的用户也听了
 export const musicSlider = (id) => http.get(`related/playlist?id=${id}`);
+// 单个歌曲播放   https://netease-cloud-music-api-five-roan-88.vercel.app/song/detail?ids=2083175377
+export const SongDatailIds = (id) => http.get(`song/detail?ids=${id}`);
+// 音频播放  https://netease-cloud-music-api-five-roan-88.vercel.app/song/url/v1?id=2083175377&level=standard
+export const SongUrlV = (id) => http.get(`song/url/v1?id=${id}&level=standard`);
 
 // 获取banner/ 推荐歌单 / 新歌新碟
 export const homepageBlockPage = () => http.get('/homepage/block/page');

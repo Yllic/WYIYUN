@@ -108,7 +108,7 @@ const SongDetails = () => {
                     关注
                   </span>
                 </div>
-                <div className="flex mt-[1vw]">
+                <div className="flex mt-[1vw] w-[56vw]">
                   {playId?.tags.map((item, index) => (
                     <div
                       className="flex items-center justify-center pl-[2.5vw] pr-[1.5vw] py-[1vw] bg-opacity-20 bg-[#fff] text-[#fff] rounded-[4px] mr-[1.4vw]"
@@ -218,7 +218,12 @@ const SongDetails = () => {
         {/* 歌曲 */}
         <div>
           {playId?.tracks.map((item, index) => (
-            <div className="flex items-center h-[14vw]" key={index}>
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+            <div
+              className="flex items-center h-[14vw]"
+              key={index}
+              onClick={() => navigate(`/PlayerHome/${item.id}`)}
+            >
               <div className="w-[4vw] text-[#bfbfbf] text-[3vw] text-center mr-[3.52vw] font-medium">
                 {index + 1}
               </div>
