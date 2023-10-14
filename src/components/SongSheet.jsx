@@ -86,7 +86,7 @@ const SongSheet = (props) => {
                 </>
               ) : (
                 // navigate(`/SongDetails/${item.creativeId}`)
-                <div onTouchStart={() => navigate(`/SongDetails/${item.creativeId}`)}>
+                <div onTouchEnd={() => navigate(`/SongDetails/${item.creativeId}`)}>
                   <img src={item.uiElement.image.imageUrl} alt="" />
                   <div className="songs_title">{item.uiElement.mainTitle.title}</div>
                   <Icon

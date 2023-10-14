@@ -30,9 +30,9 @@ const PlayerHome = () => {
     }
     setIsPlaying(!isPlaying);
   };
-  useEffect(() => {
-    console.log(isPlaying);
-  }, [isPlaying]);
+  // useEffect(() => {
+  //   console.log(isPlaying);
+  // }, [isPlaying]);
 
   const StyledDiv = styled.div`
     // 旋转

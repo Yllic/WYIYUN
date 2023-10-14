@@ -2,9 +2,10 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-// import styled from "styled-components";
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router';
+// 底部导航栏
+import NavBar from './NavBar';
 
 const Information = () => {
   const navigate = useNavigate();
@@ -178,6 +179,7 @@ const Information = () => {
           </div>
         </div>
       </div>
+      <NavBar />
     </div>
   );
 };

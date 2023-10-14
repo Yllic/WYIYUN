@@ -69,7 +69,7 @@ const SongDetails = () => {
         <div className="pt-[13.5vw] pb-[1vw]">
           {/* 单个歌曲详情 */}
           <div style={{ display: `${state ? 'none' : 'block'}` }}>
-            <div className="h-[26vw] flex pt-[2.6vw] justify-between ">
+            <div className=" flex pt-[2.6vw] justify-between ">
               {/* 左边图片 */}
               <div className="w-[24vw] h-[25vw] pt-[1vw] relative">
                 <img
@@ -100,7 +100,7 @@ const SongDetails = () => {
                     alt=""
                     className="w-[6vw] h-[6vw] rounded-[50%]"
                   />
-                  <span className="text-[2.73vw] ml-[2vw] mr-[1.5vw] text-[#fff] opacity-50">
+                  <span className="w-[28vw] overflow-hidden text-ellipsis text-[2.73vw] ml-[2vw] mr-[1.5vw] text-[#fff] opacity-50">
                     {playId?.creator.nickname}
                   </span>
                   <span className="px-[2vw] py-[1.25vw] rounded-[50px] text-[2.2vw] text-[#fff] opacity-50 bg-opacity-20 bg-[#fff] flex items-center pr-[3.5vw]">

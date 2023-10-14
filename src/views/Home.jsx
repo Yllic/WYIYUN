@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/jsx-boolean-value */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-console */
 /* eslint-disable react/function-component-definition */
@@ -6,7 +8,7 @@ import styled from 'styled-components';
 import { Icon } from '@iconify/react';
 // 跳转
 import { useNavigate } from 'react-router-dom';
-import { Popup } from 'antd-mobile';
+import { Popup, Space } from 'antd-mobile';
 import SideBar2 from './comm/Sidebar2';
 import { homepageBlockPage, detailEventHot, startTime } from '../service';
 import '../font/iconfont.css';
@@ -17,6 +19,8 @@ import SongNew from '../components/SongNew';
 import SongRank from '../components/SongRank';
 import SongHot from '../components/SongHot';
 import SongTime from '../components/SongTime';
+// 底部导航栏
+import NavBar from './NavBar';
 
 const StyledDiv = styled.div`
   background-color: #f1f1f1;
@@ -331,6 +335,7 @@ const Home = () => {
   const [rank, setRank] = useState([]);
   const [hot, setHot] = useState([]);
   const [time, setTime] = useState([]);
+  const [visible1, setVisible1] = useState(false);
   const [visible3, setVisible3] = useState(false);
 
   useEffect(() => {
@@ -377,6 +382,12 @@ const Home = () => {
     navigate('/Search');
   };
 
+  const ver = [
+    { icon: 'iconamoon:like-light', title: '优先推荐' },
+    { icon: 'pepicons-pencil:heart-off', title: '减少推荐' },
+    { icon: 'iconoir:more-vert-circle', title: '更多内容' },
+  ];
+
   return (
     <StyledDiv>
       <div className="page">
@@ -407,13 +418,50 @@ const Home = () => {
       </div>
       <Banner dataImg={page} />
       <Nav />
+      {/* 烤肉串 */}
+      <Space direction="vertical">
+        <Popup
+          visible={visible1}
+          onMaskClick={() => {
+            setVisible1(false);
+          }}
+          onClose={() => {
+            setVisible1(false);
+          }}
+          bodyStyle={{
+            borderTopLeftRadius: '15px',
+            borderTopRightRadius: '15px',
+          }}
+        >
+          <div>
+            <div
+              className="flex justify-between items-center h-[10vw] px-[5vw]"
+              style={{ borderBottom: '0.35vw solid #e8e8e8' }}
+            >
+              <div className="text-[3vw] text-[#939BA1] font-[800]">推荐歌单</div>
+              <Icon
+                icon="line-md:close-small"
+                color="#696d73"
+                className="w-[6vw] h-[6vw] rounded-[50%] bg-[#f2f2f3]"
+                onClick={() => setVisible1(false)}
+              />
+            </div>
+            {ver.map((item, index) => (
+              <div className="h-[12vw] flex items-center text-[#3a393f] text-[3vw]" key={index}>
+                <Icon icon={item.icon} className=" w-[6vw] h-[6vw] mr-[2vw] ml-[5vw]" />
+                <div>{item.title}</div>
+              </div>
+            ))}
+          </div>
+        </Popup>
+      </Space>
       {/* 推荐歌单 */}
       <div className="song" style={{ borderTop: 'none' }}>
         <div className="song_title">
           <div>推荐歌单</div>
           <span className="iconfont icon-gengduo" />
         </div>
-        <span className="iconfont icon-gengduo1" />
+        <span className="iconfont icon-gengduo1" onTouchEnd={() => setVisible1(true)} />
       </div>
       <SongSheet dataSheet={sheet} />
       {/* 新歌新碟 */}
@@ -422,7 +470,7 @@ const Home = () => {
           <div>新歌新碟\数字专辑</div>
           <span className="iconfont icon-gengduo" />
         </div>
-        <span className="iconfont icon-gengduo1" />
+        <span className="iconfont icon-gengduo1" onTouchEnd={() => setVisible1(true)} />
       </div>
       <SongNew dataNew={snew} />
       {/* 排行榜 */}
@@ -431,7 +479,7 @@ const Home = () => {
           <div>排行榜</div>
           <span className="iconfont icon-gengduo" />
         </div>
-        <span className="iconfont icon-gengduo1" />
+        <span className="iconfont icon-gengduo1" onTouchEnd={() => setVisible1(true)} />
       </div>
       <SongRank dataRank={rank} />
       {/* 热门话题 */}
@@ -440,7 +488,7 @@ const Home = () => {
           <div>热门话题</div>
           <span className="iconfont icon-gengduo" />
         </div>
-        <span className="iconfont icon-gengduo1" />
+        <span className="iconfont icon-gengduo1" onTouchEnd={() => setVisible1(true)} />
       </div>
       <SongHot dataHot={hot} />
       {/* 音乐日历 */}
@@ -449,10 +497,11 @@ const Home = () => {
           <div>音乐日历</div>
           <span className="iconfont icon-gengduo" />
         </div>
-        <span className="iconfont icon-gengduo1" />
+        <span className="iconfont icon-gengduo1" onTouchEnd={() => setVisible1(true)} />
       </div>
       <SongTime dataTime={time} />
       <div className="w-[100%] h-[6.32vw] bg-[#f1f1f1]" />
+      <NavBar />
     </StyledDiv>
   );
 };

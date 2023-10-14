@@ -15,6 +15,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getTopMv } from '../service';
+// 底部导航栏
+import NavBar from './NavBar';
 
 const StyledDiv = styled.div`
   .title {
@@ -176,6 +178,7 @@ const Mv = () => {
           </div>
         </div>
       </div>
+      <NavBar />
     </StyledDiv>
   );
 };
