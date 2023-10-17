@@ -15,6 +15,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useToggle } from 'ahooks';
 import BetterScroll from '../components/BetterScroll';
 import { getPlaylistDetailById, musicSlider } from '../service';
+import Popups from './comm/Popups';
 
 const SongDetails = () => {
   const [playId, setPlayId] = useState();
@@ -46,10 +47,20 @@ const SongDetails = () => {
   // console.log(slider);
   // console.log(playId);
   // console.log(state);
+
   return (
     <div>
-      {/* h-[70vw] pb-[18vw] */}
-      <div className="transition-all duration-20 0 relative bg-gradient-to-br from-[#486D8D] to-[#6186AB] pb-[5vw] pl-[3.9vw] pr-[3.4vw] box-content">
+      {/* h-[70vw] pb-[18vw] coverImgUrl   bg-gradient-to-br from-[#486D8D] to-[#6186AB]     */}
+      <div className="transition-all duration-20 0 relative pb-[5vw] pl-[3.9vw] pr-[3.4vw] box-content ">
+        <div
+          className=" w-[96%] h-[100%] absolute top-0 z-[-1] box-border"
+          style={{
+            backgroundImage: `url(${playId?.coverImgUrl})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '100% 100%',
+            filter: 'blur(50px)',
+          }}
+        ></div>
         {/* 歌单 */}
         <div className="h-[13.5vw] w-[100vw] pl-[3.9vw] pr-[3.4vw] flex items-center justify-between fixed top-0 left-0 box-border">
           <div className="flex items-center">
@@ -63,7 +74,7 @@ const SongDetails = () => {
           </div>
           <div className="flex items-center">
             <Icon icon="ooui:search" color="white" className="text-[4.6vw] mr-[5vw]" />
-            <Icon icon="mingcute:more-2-line" color="white" className="text-[7vw]" />
+            <Popups></Popups>
           </div>
         </div>
         <div className="pt-[13.5vw] pb-[1vw]">
@@ -76,6 +87,7 @@ const SongDetails = () => {
                   src={playId?.coverImgUrl}
                   alt=""
                   className="w-[24vw] h-[24vw] rounded-[10px] relative z-[2] bg-slate-300"
+                  onTouchEnd={() => navigate('/SongBoutique')}
                 />
                 <div className="w-[20vw] h-[10vw] bg-opacity-20 bg-[#fff] absolute top-0 left-1/2 -translate-x-1/2 rounded-[6px] z-[1]"></div>
                 <div className="absolute top-0 left-0 pr-[1.4vw] pt-[2vw] justify-end font-[800] text-[#fff] flex items-center w-[24vw] z-[2]">
@@ -100,7 +112,7 @@ const SongDetails = () => {
                     alt=""
                     className="w-[6vw] h-[6vw] rounded-[50%]"
                   />
-                  <span className="w-[28vw] overflow-hidden text-ellipsis text-[2.73vw] ml-[2vw] mr-[1.5vw] text-[#fff] opacity-50">
+                  <span className=" overflow-hidden text-ellipsis text-[2.73vw] ml-[2vw] mr-[1.5vw] text-[#fff] opacity-50">
                     {playId?.creator.nickname}
                   </span>
                   <span className="px-[2vw] py-[1.25vw] rounded-[50px] text-[2.2vw] text-[#fff] opacity-50 bg-opacity-20 bg-[#fff] flex items-center pr-[3.5vw]">
@@ -178,7 +190,11 @@ const SongDetails = () => {
               <Icon icon="bxs:share" color="white" hFlip={true} className="text-[5vw] mr-[1.8vw]" />
               {playId?.shareCount}
             </div>
-            <div className="flex items-center justify-center h-[9.9vw] rounded-[200px] bg-opacity-20 bg-[#fff] font-[800] flex-1 text-[#f8fefe] text-[3vw] mx-[3vw]">
+            {/* 歌单评论点击跳转  */}
+            <div
+              className="flex items-center justify-center h-[9.9vw] rounded-[200px] bg-opacity-20 bg-[#fff] font-[800] flex-1 text-[#f8fefe] text-[3vw] mx-[3vw]"
+              onTouchEnd={() => navigate(`/SongComment/${location.pathname.split('/')[2]}`)}
+            >
               <Icon
                 icon="ph:chat-circle-dots-fill"
                 color="white"

@@ -14,6 +14,8 @@ import Information from './views/Information';
 import SongDetails from './views/SongDetails';
 import PlayerHome from './views/PlayerHome';
 import VideoPlayerView from './views/VideoPlayerView';
+import SongComment from './views/SongComment';
+import SongBoutique from './views/SongBoutique';
 
 const App = () => {
   return (
@@ -25,9 +27,16 @@ const App = () => {
       <Route path="/Search" element={<Search />} />
       <Route path="/Login" element={<Login />} />
 
+      {/* 歌单详情 */}
       <Route path="/SongDetails/:id" element={<SongDetails />} />
+      {/* 歌单详情音乐播放 */}
       <Route path="/PlayerHome/:id" element={<PlayerHome />} />
+      {/* mv视频播放 */}
       <Route path="/VideoPlayerView/:id" element={<VideoPlayerView />} />
+      {/* 歌单详情歌曲评论 */}
+      <Route path="/SongComment/:id" element={<SongComment />} />
+      {/* 精品歌单 */}
+      <Route path="/SongBoutique" element={<SongBoutique />} />
     </Routes>
   );
 };

@@ -26,6 +26,8 @@ export const musicSlider = (id) => http.get(`related/playlist?id=${id}`);
 export const SongDatailIds = (id) => http.get(`song/detail?ids=${id}`);
 // 音频播放  https://netease-cloud-music-api-five-roan-88.vercel.app/song/url/v1?id=2083175377&level=standard
 export const SongUrlV = (id) => http.get(`song/url/v1?id=${id}&level=standard`);
+// 歌单评论 /comment/playlist
+export const getCommentPlayList = (id) => http.get(`comment/playlist?id=${id}`);
 
 // 获取banner/ 推荐歌单 / 新歌新碟
 export const homepageBlockPage = () => http.get('/homepage/block/page');

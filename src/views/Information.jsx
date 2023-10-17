@@ -97,11 +97,7 @@ const Information = () => {
                 </div>
                 <p className="text-[3.5vw] text-[#5A565D] m-0 pl-[1.7vw]">142首</p>
                 <div className="absolute bottom-[2.5vw] left-[1.7vw] text-[#B1B1AE] text-[2.4vw] flex items-center">
-                  <Icon
-                    icon="heroicons:heart-20-solid"
-                    color="#b1b1ae"
-                    className="mr-[0.8vw] text-[3vw]"
-                  />
+                  <Icon icon="bx:bx-bar-chart" color="#b1b1ae" className="mr-[0.8vw] text-[3vw]" />
                   喜欢的音乐
                 </div>
               </div>
@@ -138,12 +134,12 @@ const Information = () => {
               <li className="h-[12vw] flex mb-[1.5vw]">
                 {/* 左边图片 */}
                 <div className="relative pt-[0.6vw] mr-[2.6vw] ">
+                  <div className="w-[9vw] h-[4vw] bg-[#ddd] bg-opacity-50 absolute top-[0vw] left-1/2 -translate-x-1/2 rounded-[6px] "></div>
                   <img
                     src=""
                     alt=""
-                    className="w-[12vw] h-[12vw] rounded-[10px] bg-slate-300 z-[2] relative"
+                    className="w-[12vw] h-[12vw] rounded-[10px] bg-slate-300 relative"
                   />
-                  <div className="w-[9vw] h-[4vw] bg-[#ddd] bg-opacity-50 absolute top-[0vw] left-1/2 -translate-x-1/2 rounded-[6px] z-[1]"></div>
                 </div>
                 {/* 右边文字 */}
                 <div className="flex flex-wrap items-center flex-1 py-[1vw]">

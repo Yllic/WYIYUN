@@ -18,7 +18,7 @@ const PlayerHome = () => {
   const [player, setPlayer] = useState();
   const location = useLocation();
   const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const audioClick = () => {
     const audio = audioRef.current;
     if (audio && audio instanceof HTMLAudioElement) {

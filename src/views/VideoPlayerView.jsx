@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import styled from 'styled-components';
 import { NoticeBar } from 'antd-mobile';
+import { useToggle } from 'ahooks';
 import { getMvDetail, getMvInfo, getMvUrl } from '../service';
 
 const VideoPlayerView = () => {
@@ -15,6 +16,7 @@ const VideoPlayerView = () => {
   const location = useLocation();
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [state, { toggle }] = useToggle(false);
   const videoClick = () => {
     const video = videoRef.current;
     if (video && video instanceof HTMLVideoElement) {
@@ -126,14 +128,35 @@ const VideoPlayerView = () => {
               </div>
             </div>
             {/* mv */}
-            <div className="w-[76vw] mb-[5vw] text-[#fff] flex items-center justify-between">
+            <div className="w-[66vw] mb-[1vw] text-[#fff] flex items-center justify-between">
               <div>
                 <div className="w-[7.3vw] mr-[2vw] leading-[5.2vw] text-center inline-block bg-[#333333] text-[#ACACAC]">
                   MV
                 </div>
                 <span>{detail?.name}</span>
               </div>
-              <Icon icon="ep:arrow-down" width="5vw" />
+              <Icon
+                icon="ep:arrow-down"
+                width="5vw"
+                onClick={() => toggle()}
+                style={{
+                  transform: `${
+                    state
+                      ? 'translateX(0%) translateY(0%) rotate(180deg)'
+                      : 'translateX(0%) translateY(0%) rotate(0deg)'
+                  }`,
+                }}
+              />
+            </div>
+            {/* desc简介显示与隐藏 */}
+            <div
+              className=" max-h-[93vw] text-[#fff] w-[67vw] overflow-auto"
+              style={{
+                display: `${state ? 'block' : 'none'}`,
+                transition: 'height 0.3s ease-in-out',
+              }}
+            >
+              {detail?.desc}
             </div>
             {/* 滚动 */}
             <div className="text-[#fff] text-[4vw] flex items-center">
@@ -178,7 +201,11 @@ const VideoPlayerView = () => {
       </div>
       <div className="w-[100%] absolute bottom-0 bg-black flex items-center justify-between text-[#4d4d4d] px-[5vw] py-[5vw] box-border text-[4vw]">
         <div>发条评论结识有趣的人</div>
-        <h4 className="m-[0]">123</h4>
+        <Icon
+          icon="bx:bx-expand-horizontal"
+          width="5vw"
+          style={{ transform: 'translateX(0%) translateY(0%) rotate(45deg)' }}
+        />
       </div>
     </div>
   );
