@@ -87,12 +87,12 @@ const SongDetails = () => {
                   src={playId?.coverImgUrl}
                   alt=""
                   className="w-[24vw] h-[24vw] rounded-[10px] relative z-[2] bg-slate-300"
-                  onTouchEnd={() => navigate('/SongBoutique')}
+                  onTouchEnd={() => navigate(`/SongBoutique/${location.pathname.split('/')[2]}`)}
                 />
                 <div className="w-[20vw] h-[10vw] bg-opacity-20 bg-[#fff] absolute top-0 left-1/2 -translate-x-1/2 rounded-[6px] z-[1]"></div>
                 <div className="absolute top-0 left-0 pr-[1.4vw] pt-[2vw] justify-end font-[800] text-[#fff] flex items-center w-[24vw] z-[2]">
                   <Icon icon="ion:play" width="3vw" height="3vw" />
-                  <span className="font-[800] text-[1.5vw] mr-[2vw]">
+                  <span className="font-[800] text-[2.5vw] mr-[2vw]">
                     {parseInt(playId?.playCount / 100000000) > 1
                       ? parseInt(playId?.playCount / 100000000) + '亿'
                       : parseInt(playId?.playCount / 10000) > 1
@@ -134,7 +134,10 @@ const SongDetails = () => {
               </div>
             </div>
             <p className="h-[4vw] flex items-center w-[90vw] overflow-hidden mt-[1.8vw] justify-between">
-              <span className="text-[#fff] opacity-50 text-[2.8vw] whitespace-nowrap w-[83vw] overflow-hidden">
+              <span
+                className="text-[#fff] opacity-50 text-[2.8vw] whitespace-nowrap w-[83vw] overflow-hidden"
+                onTouchEnd={() => navigate(`/SongBoutique/${location.pathname.split('/')[2]}`)}
+              >
                 {playId?.description}
               </span>
               <Icon icon="icon-park-outline:right" color="white" className="text-[4vw]" />

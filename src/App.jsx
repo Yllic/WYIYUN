@@ -36,7 +36,7 @@ const App = () => {
       {/* 歌单详情歌曲评论 */}
       <Route path="/SongComment/:id" element={<SongComment />} />
       {/* 精品歌单 */}
-      <Route path="/SongBoutique" element={<SongBoutique />} />
+      <Route path="/SongBoutique/:id" element={<SongBoutique />} />
     </Routes>
   );
 };
